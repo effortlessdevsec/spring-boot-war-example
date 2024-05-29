@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test' ; sh 'mv install'
             }
         }
     }
