@@ -4,7 +4,6 @@ pipeline {
         maven 'Maven'
     }
     
-
     stages {
         stage('Hello') {
             steps {
