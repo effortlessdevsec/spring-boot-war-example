@@ -8,8 +8,16 @@ pipeline {
 
     stages {
         stage('Hello') {
-            steps {
+            try{
+steps {
                 sh 'mvn test' ; sh 'mvn install'
+            }
+
+                catch {
+                    echo 'error in building'
+                }
+
+                
             }
         }
     }
