@@ -1,6 +1,7 @@
 pipeline {
     agent any
- tools {
+    
+    tools {
         maven 'Maven'
     }
     
@@ -19,19 +20,15 @@ pipeline {
             }
         }
 
-        stage ('Test'){
-
+        stage('Test') {
             when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                }
+            }
+            steps {
+                echo 'build success !!!'
+            }
         }
-             steps {
-                 echo 'build sucess !!!'
-                 
-             }
-
-            
-        
     }
 }
