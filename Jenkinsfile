@@ -19,5 +19,20 @@ pipeline {
                 }
             }
         }
+
+        stage (Test){
+
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+        }
+             steps {
+                 echo 'build sucess !!!'
+                 
+             }
+
+            
+        
     }
 }
