@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage (Test){
+        stage ('Test'){
 
             when {
               expression {
