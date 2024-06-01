@@ -1,23 +1,22 @@
 pipeline {
     agent any
-    
+
     tools {
-        
         maven 'Maven'
     }
 
     stages {
         stage('Hello') {
-            try{
-steps {
-                sh 'mvn test' ; sh 'mvn install'
-            }
-
-                catch {
-                    echo 'error in building'
+            steps {
+                script {
+                    try {
+                        sh 'mvn test'
+                        sh 'mvn install'
+                    } catch (Exception e) {
+                        echo 'Error in building'
+                        error 'Build failed'
+                    }
                 }
-
-                
             }
         }
     }
